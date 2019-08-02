@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: szfs-website
+  labels:
+    app: szfs-website
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: szfs-website
+  template:
+    metadata:
+      labels:
+        app: szfs-website
+    spec:
+      containers:
+      - name: szfs-website
+        image: microwaves/szfs-website:latest
+        ports:
+        - containerPort: 80
